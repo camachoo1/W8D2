@@ -1,8 +1,8 @@
-function range(start, end) {
+const range = (start, end) => {
   return start === end
     ? [start]
     : start.concat(range(start + 1, end));
-}
+};
 
 const sumRec = function (arr) {
   if (arr.length < 2) return arr[0];
@@ -19,7 +19,5 @@ function exponent(base, exp) {
 }
 
 function fibbonacci(n) {
-  if (n <= 1) return 1;
-
-  return fibbonacci(n - 1) + fibbonacci(n - 2);
+  return n <= 1 ? 1 : fibbonacci(n - 1) + fibbonacci(n - 2);
 }
