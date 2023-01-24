@@ -1,11 +1,6 @@
 Array.prototype.uniq = function () {
-  let newArr = [];
-  this.forEach((num) => {
-    if (!newArr.includes(num)) {
-      newArr.push(num);
-    }
-  });
-  return newArr;
+  let res = new Set(this);
+  return Array.from(res);
 };
 
 Array.prototype.twoSum = function () {
