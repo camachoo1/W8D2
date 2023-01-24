@@ -4,20 +4,18 @@ const range = (start, end) => {
     : start.concat(range(start + 1, end));
 };
 
-const sumRec = function (arr) {
+const sumRec = (arr) => {
   if (arr.length < 2) return arr[0];
 
   let temp = arr.shift();
   return temp + sumRec(arr);
 };
 
-function exponent(base, exp) {
+const exponent = (base, exp) => {
   if (exp === 0) return 1;
-  if (exp === 1) return base;
+  return exp === 1 ? base : base * exponent(base, exp - 1);
+};
 
-  return base * exponent(base, exp - 1);
-}
-
-function fibbonacci(n) {
+const fibbonacci = (n) => {
   return n <= 1 ? 1 : fibbonacci(n - 1) + fibbonacci(n - 2);
-}
+};
