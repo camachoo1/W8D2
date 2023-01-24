@@ -1,24 +1,24 @@
-Array.prototype.myEach = function (callback) {
+Array.prototype.myEach = function (cb) {
   for (let i = 0; i < this.length; i++) {
-    callback(this[i]);
+    cb(this[i]);
   }
 };
 
-Array.prototype.myMap = function (callback) {
+Array.prototype.myMap = function (cb) {
   let resArr = [];
 
   for (let i = 0; i < this.length; i++) {
-    resArr.push(callback(this[i]));
+    resArr.push(cb(this[i]));
   }
 
   return resArr;
 };
 
-Array.prototype.myReduce = function (callback) {
+Array.prototype.myReduce = function (cb) {
   let acc = 0;
 
   for (let i = 0; i < this.length; i++) {
-    acc += callback(this[i]);
+    acc += cb(this[i]);
   }
 
   return acc;

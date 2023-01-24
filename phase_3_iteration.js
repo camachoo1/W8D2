@@ -1,4 +1,4 @@
-Array.prototype.bubbleSort = function (callback) {
+Array.prototype.bubbleSort = function () {
   let sorted = false;
 
   while (!sorted) {
