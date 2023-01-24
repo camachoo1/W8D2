@@ -14,12 +14,12 @@ Array.prototype.myMap = function (cb) {
   return resArr;
 };
 
-Array.prototype.myReduce = function (cb) {
+Array.prototype.myReduce = function (cb, initialVal = 0) {
   let acc = 0;
 
-  for (let i = 0; i < this.length; i++) {
-    acc += cb(this[i]);
-  }
+  acc = initialVal === 0 ? this.shift() : initialVal;
+
+  this.myEach((ele) => (acc += cb(ele)));
 
   return acc;
 };
