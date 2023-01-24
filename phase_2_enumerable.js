@@ -15,9 +15,7 @@ Array.prototype.myMap = function (cb) {
 };
 
 Array.prototype.myReduce = function (cb, initialVal = 0) {
-  let acc = 0;
-
-  acc = initialVal === 0 ? this.shift() : initialVal;
+  let acc = initialVal === 0 ? this.shift() : initialVal;
 
   this.myEach((ele) => (acc += cb(ele)));
 
