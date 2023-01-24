@@ -16,6 +16,6 @@ const exponent = (base, exp) => {
   return exp === 1 ? base : base * exponent(base, exp - 1);
 };
 
-const fibbonacci = (n) => {
-  return n <= 1 ? 1 : fibbonacci(n - 1) + fibbonacci(n - 2);
+const fibonacci = (n) => {
+  return n <= 1 ? 1 : fibonacci(n - 1) + fibonacci(n - 2);
 };
