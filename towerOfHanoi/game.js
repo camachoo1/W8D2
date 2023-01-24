@@ -40,9 +40,18 @@ class Chess {
     }
   }
 
-  move(startTowerIdx, endTowerIdx) {}
+  move(startTowerIdx, endTowerIdx) {
+    if (this.isValidMove(startTowerIdx, endTowerIdx)) {
+      this.towers[endTowerIdx].push(this.towers[startTowerIdx].pop())
+      return true
+    } else {
+      return false
+    }
+  }
 
-  isWon() { }
+  isWon() {
+      return (this.towers[2].length === 3) || (this.towers[1].length === 3);
+  }
   
   run(completeCallback)
 }
