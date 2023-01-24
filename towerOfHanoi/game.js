@@ -53,5 +53,19 @@ class Chess {
     return this.towers[2].length === 3 || this.towers[1].length === 3;
   }
 
-  run(completeCallback) {}
+  run(completeCallback) {
+    this.promptMove((startTowerIdx, endTowerIdx) => {
+      if (!this.move(startTowerIdx, endTowerIdx)) {
+        console.log('Invalid move!');
+      }
+
+      if (!this.isWon()) {
+        this.run(completeCallback);
+      } else {
+        this.print();
+        console.log('You win!');
+        completeCallback();
+      }
+    });
+  }
 }
