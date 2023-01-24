@@ -7,9 +7,10 @@ Array.prototype.myEach = function (cb) {
 Array.prototype.myMap = function (cb) {
   let resArr = [];
 
-  for (let i = 0; i < this.length; i++) {
-    resArr.push(cb(this[i]));
-  }
+  // for (let i = 0; i < this.length; i++) {
+  //   resArr.push(cb(this[i]));
+  // }
+  this.myEach((ele) => resArr.push(ele));
 
   return resArr;
 };
