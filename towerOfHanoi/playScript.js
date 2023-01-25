@@ -10,7 +10,7 @@ let game = new Game();
 
 const cb = () => {
   reader.question('Want to play again? Yes or No: ', (restart) => {
-    if (restart === 'y') {
+    if (restart === 'yes') {
       game = new Game();
       // game.run(reader, cb);
     } else {
