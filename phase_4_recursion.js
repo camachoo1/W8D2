@@ -19,3 +19,38 @@ const exponent = (base, exp) => {
 const fibonacci = (n) => {
   return n <= 1 ? 1 : fibonacci(n - 1) + fibonacci(n - 2);
 };
+
+const cb = (left, right) => {
+  if (left < right) {
+    return -1;
+  }
+  return left > right ? 1 : 0;
+};
+
+Array.prototype.mergeSort = function (callback) {
+  if (this.length <= 1) return this;
+
+  if (typeof callback === 'undefined') {
+    callback = cb;
+  }
+
+  let mid = Math.floor(this.length / 2);
+  let left = this.slice(0, mid).mergeSort(callback);
+  let right = this.slice(mid).mergeSort(callback);
+
+  return merge(left, right, callback);
+};
+
+const merge = (left, right, callback) => {
+  let merged = [];
+
+  while (left.length && right.length) {
+    callback(left[0], right[0]) === -1
+      ? merged.push(left.shift())
+      : callback(left[0], right[0]) === 1
+      ? merged.push(right.shift())
+      : merged.push(right.shift());
+  }
+
+  return merged.concat(left, right);
+};
