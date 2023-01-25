@@ -1,24 +1,17 @@
-class Chess {
+class Game {
   constructor() {
     this.towers = [[3, 2, 1], [], []];
-  }
-
-  run() {
-    // until a player is in checkmate
-    // get move from current player
-    // make move on board
-    // switch current player
   }
 
   print() {
     console.log(JSON.stringify(this.towers));
   }
 
-  promptMove(cb) {
+  promptMove(reader, cb) {
     this.print;
-    prompt('Enter a start point:', (start) => {
+    reader.question('Enter a start point:', (start) => {
       const startTowerIdx = parseInt(start);
-      prompt('Enter a end point:', (end) => {
+      reader.question('Enter a end point:', (end) => {
         const endTowerIdx = parseInt(end);
         cb(startTowerIdx, endTowerIdx);
       });
@@ -53,14 +46,14 @@ class Chess {
     return this.towers[2].length === 3 || this.towers[1].length === 3;
   }
 
-  run(completeCallback) {
-    this.promptMove((startTowerIdx, endTowerIdx) => {
+  run(reader, completeCallback) {
+    this.promptMove(reader, (startTowerIdx, endTowerIdx) => {
       if (!this.move(startTowerIdx, endTowerIdx)) {
         console.log('Invalid move!');
       }
 
       if (!this.isWon()) {
-        this.run(completeCallback);
+        this.run(reader, completeCallback);
       } else {
         this.print();
         console.log('You win!');
@@ -69,3 +62,6 @@ class Chess {
     });
   }
 }
+
+// export default Game;
+module.exports = Game;
