@@ -48,11 +48,11 @@ class Game {
 
   run(reader, completeCallback) {
     this.promptMove(reader, (startTowerIdx, endTowerIdx) => {
-      if (!this.move(startTowerIdx, endTowerIdx)) {
+      if (!this.move(startTowerIdx, endTowerIdx))
         console.log('Invalid move!');
-      }
 
       if (!this.isWon()) {
+        this.print();
         this.run(reader, completeCallback);
       } else {
         this.print();
