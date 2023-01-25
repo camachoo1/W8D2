@@ -20,6 +20,21 @@ const fibonacci = (n) => {
   return n <= 1 ? 1 : fibonacci(n - 1) + fibonacci(n - 2);
 };
 
+const bsearch = (arr, target) => {
+  if (arr.length === 0) return -1;
+
+  let mid = Math.floor(arr.length / 2);
+  if (arr[mid] === target) return mid;
+  let left = arr.slice(0, mid);
+  let right = arr.slice(mid + 1, arr.length - 1);
+
+  if (arr[mid] > target) {
+    return bsearch(left, target);
+  }
+  res = bsearch(right, target);
+  return !res ? -1 : res + mid + 1;
+};
+
 const cb = (left, right) => {
   if (left < right) {
     return -1;
